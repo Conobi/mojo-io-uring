@@ -9,7 +9,11 @@ TESTS=(
     tests/io_uring/test_nop.mojo
     tests/io_uring/test_buf.mojo
     tests/io_uring/test_net.mojo
+    tests/io_uring/test_net_structs.mojo
+    tests/io_uring/test_udp.mojo
     tests/mojix/net/test_socket.mojo
+    tests/mojix/net/test_sockaddr_v6.mojo
+    tests/mojix/test_io_uring.mojo
     tests/event_loop/test_event_loop.mojo
     tests/event_loop/test_event_loop_net.mojo
 )

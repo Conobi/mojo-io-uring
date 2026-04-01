@@ -8,14 +8,6 @@
 .env
 run_tests
 
-# pixi environments
-.pixi
-*.egg-info
-
-# magic environments
-.magic
-magic.lock
-
 # Mojo packages
 *.mojopkg
 
