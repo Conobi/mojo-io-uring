@@ -5,21 +5,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 ```bash
+# Install dev dependencies (mojox provides the Mojo compiler)
+uv sync
+
 # Build all packages
-./scripts/build.sh
+uv run -- bash scripts/build.sh
 
 # Run all tests
-./scripts/run_tests.sh
+uv run -- bash scripts/run_tests.sh
 
 # Run a single test file
-uvx --from mojo-compiler mojo run -I . -D ASSERT=all tests/io_uring/test_nop.mojo
-```
-
-Build packages individually:
-```bash
-uvx --from mojo-compiler mojo package linux_raw -o linux_raw.mojopkg
-uvx --from mojo-compiler mojo package mojix -o mojix.mojopkg
-uvx --from mojo-compiler mojo package io_uring -o io_uring.mojopkg
+uv run -- mojo run -I . -D ASSERT=all tests/io_uring/test_nop.mojo
 ```
 
 ## Architecture
@@ -48,4 +44,4 @@ Three-layer abstraction:
 
 ## Environment
 
-Requires `uv` with `mojo-compiler` tool (`uvx --from mojo-compiler mojo`). Pinned to Mojo 0.26.1 via `.mojo-version`. Only x86_64 Linux is supported.
+Requires `uv`. Run `uv sync` to install dev dependencies (`mojox`, which provides the Mojo compiler transitively). Mojo version is pinned via `uv.lock`. Only x86_64 Linux is supported.
